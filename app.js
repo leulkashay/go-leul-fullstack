@@ -5,6 +5,7 @@ const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 
 const stuffRouter=require('./routes/stuff');
+const userRouter=require('./routes/user');
 
 const app= express();
 mongoose.connect('mongodb+srv://mahi:mahi123@cluster0-4mdzw.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser: true})
@@ -25,6 +26,7 @@ app.use((req,res,next)=>{
 app.use(bodyParser.json());
 
 app.use('/api/stuff',stuffRouter);
+app.use('/api/auth',userRouter);
 
 
 
